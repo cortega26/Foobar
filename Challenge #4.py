@@ -30,9 +30,6 @@ solution(15) returns 5: 15 -> 16 -> 8 -> 4 -> 2 -> 1
 def solution(n):
     n = int(n)
     operations = 0
-    
-    if (n >= 1) and (n <= 3):
-        return n - 1
         
     while n > 1:
         
