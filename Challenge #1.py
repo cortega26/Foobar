@@ -21,15 +21,15 @@ leftovers.
 
 def solution(s):
     
-    #We need to know the total number of M&Ms in the cake, so
+    # Number of M&Ms in the cake
     a = len(s)
     
-    #We search for all the divisors of 'a'. Since we can leave no
-    #leftovers one of this divisors must the answer to our problem
+    # We search for all the divisors of 'a'. Since we can leave no
+    # leftovers one of this divisors must the answer to our problem
     div_list = [i for i in range(1, a + 1) if a % i == 0]
 
-    #We extract div_list[i]-size substrings from 's' and multiply by their respective
-    #quotient and check if the product is a match for the cake and that's it
+    # We extract div_list[i]-size substrings from 's' and multiply by their respective
+    # quotient and check if the product is a match for the cake and that's it
     for index, divisor in enumerate(div_list):
         if s == s[0:divisor] * div_list[len(div_list) - index - 1]:
             return int(len(s) / div_list[index])
