@@ -52,8 +52,8 @@ So, putting that together, and making a common denominator, gives an answer in t
 #      0 | I
 #
 #
-# Also please be aware this exercise can be solved with a small fraction of this
-# Using a module like Numpy or Scipy and Fractions.
+# Also please be aware this exercise can be solved with a small fraction of this code
+# (yes, this is verbose solution) by using a module like Numpy or Scipy and Fractions.
 
 
 def solution(m):
