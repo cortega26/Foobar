@@ -89,7 +89,7 @@ def solution(m):
     return sf
   
 
-# All rows must add 1, so add up all indices that sum is our denominator
+# All rows must add 1, so add up all indices and that total is our denominator
 def normalize(m):
     matrix = []
     for array in m:
@@ -104,7 +104,7 @@ def normalize(m):
     return matrix
   
 
-# Send all rows of zeros down and change to 1 on absorbing states
+# Send all rows of zeros to the bottom and change to 1 on absorbing states
 def reorder(m): 
     new_mat = []
     ind = []
