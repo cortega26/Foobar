@@ -51,9 +51,73 @@ Start End Delta Time Status
 With this solution, you would pick up bunnies 1 and 2. This is the best combination for this space station hallway, so the solution is [1, 2].
 """
 
-from numpy import Inf
+from itertools import permutations
 
 def solution(times, time_limit):
-    size = len(times)
-    distance = [Inf for _ in range(size)]
-    node_visited = [False if i >= 1 else True for i in range(size)]
+    nodes = len(times)
+    inner_nodes = nodes - 2
+    g = Graph(nodes)
+    [[g.addEdge(i, j, element) for j, element in enumerate(array) if i != j] for i, array in enumerate(times)]
+    all_permutations = []
+    
+    for k in range(nodes - 1):
+        inner_permutations = [list(j) for j in list(permutations([i for i in range(1, nodes - 1)], (inner_nodes - k)))]
+        for array in inner_permutations:
+            array = [0] + array + [nodes - 1]
+            all_permutations.append(array)
+
+    distances = [g.BellmanFord(i) for i in range(nodes)]
+
+    if None in distances:
+        solut = [i for i in range(nodes)]
+        solut = solut[1:-1]
+        return [i - 1 for i in solut] 
+   
+    for i in range(nodes - 1):
+        for permut in all_permutations:
+            used_time = 0
+            min_time = float("Inf")
+            if len(permut) == nodes - i:
+                for j in range(len(permut)-1):
+                    for array in distances:
+                        for distance in array:
+                            if permut[j] == distance[0] and permut[j+1] == distance[1]:
+                                used_time += distance[2]
+            else:
+                continue
+            if used_time < min_time:
+                min_time = used_time
+                if min_time - time_limit <= 0:
+                    permut = permut[1:-1]
+                    permut = [x - 1 for x in permut]
+                    permut.sort()
+                    return permut
+
+
+class Graph:
+ 
+    def __init__(self, vertices):
+        self.V = vertices
+        self.graph = []
+ 
+    def addEdge(self, u, v, w):
+        self.graph.append([u, v, w])
+         
+    def printArr(self, dist, src):
+        return [[src, i, dist[i]] for i in range(self.V)]
+      
+    def BellmanFord(self, src):
+ 
+        dist = [float("Inf")] * self.V
+        dist[src] = 0
+ 
+        for _ in range(self.V - 1):
+            for u, v, w in self.graph:
+                if dist[u] != float("Inf") and dist[u] + w < dist[v]:
+                        dist[v] = dist[u] + w
+ 
+        for u, v, w in self.graph:
+            if dist[u] != float(u"Inf") and dist[u] + w < dist[v]:
+                return None
+                         
+        return self.printArr(dist, src)
