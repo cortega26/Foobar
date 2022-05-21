@@ -67,7 +67,7 @@ def solution(times, time_limit):
 
     distances = [g.BellmanFord(i) for i in range(nodes)]
 
-    if None in distances:
+    if None in distances: # This is to ask if a negative cycle exists
         solut = [i for i in range(nodes)]
         solut = solut[1:-1]
         return [i - 1 for i in solut] 
@@ -86,7 +86,7 @@ def solution(times, time_limit):
                 continue
             if used_time < min_time:
                 min_time = used_time
-                if min_time - time_limit <= 0:
+                if min_time <= time_limit:
                     permut = permut[1:-1]
                     permut = [i - 1 for i in permut]
                     permut.sort()
