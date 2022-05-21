@@ -59,7 +59,6 @@ def solution(times, time_limit):
     g = Graph(nodes)
     [[g.addEdge(i, j, element) for j, element in enumerate(array) if i != j] for i, array in enumerate(times)]
     all_permutations = []
-    
     for k in range(nodes - 1):
         inner_permutations = [list(j) for j in list(permutations([i for i in range(1, nodes - 1)], (inner_nodes - k)))]
         for array in inner_permutations:
@@ -89,7 +88,7 @@ def solution(times, time_limit):
                 min_time = used_time
                 if min_time - time_limit <= 0:
                     permut = permut[1:-1]
-                    permut = [x - 1 for x in permut]
+                    permut = [i - 1 for i in permut]
                     permut.sort()
                     return permut
 
