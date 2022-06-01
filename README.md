@@ -1,6 +1,6 @@
 # Google Foobar Challenges
 
-Google Foobar is a serie of Challenges Google has created to test dev abilities to solve increasingly harder problems with each new level
+Google Foobar is a serie of Challenges Google has created to test dev abilities to solve problems requiring different levels of analysis and problem solving on each new stage.
 
 Level 1 consists of 1 Challenge
 Level 2 consists of 2 Challenges
