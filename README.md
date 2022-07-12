@@ -7,6 +7,6 @@ Google Foobar is a serie of Challenges Google has created to test dev abilities 
 * Level 3 consists of 3 Challenges
 * Level 4 consists of 2 Challenges
 * Level 5 consists of 1 Challenge
+* Each and every of these files represent my personal approach to solve the problem
 
-- Each and every of these files represent my personal approach to solve the problem
-- Better/cleaner solutions might be found in other repositories.
+I cleared levels 1, 2, 3 and the first problem from level 4.
