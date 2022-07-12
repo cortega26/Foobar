@@ -50,8 +50,8 @@ def solution(m, f):
         if m == 1 or f == 1:
             return str(replications + abs(m - f))
         if m > f:
-            replications += m // f # This is how many times does m fit into b
-            m = m % f # And this is the remainder of the previous operation
+            replications += m // f
+            m = m % f
         else:
             replications += f // m
             f = f % m
