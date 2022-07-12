@@ -30,28 +30,14 @@ solution(15) returns 5: 15 -> 16 -> 8 -> 4 -> 2 -> 1
 def solution(n):
     n = int(n)
     operations = 0
-        
     while n > 1:
-        
-        # Any even number will be divided by two
-        # until we get an odd number. Since we are
-        # guaranteed the number is divisible by
-        # two we use floor division to avoid stack
-        # overflow with strings of 309 digits.
         if n % 2 == 0:
             n = n // 2
-
-        # Any odd number has two even neighbors:
-        # a) One can be divided by two just ONCE, and
-        # b) The other can be divided by two MORE than once
-        # We then discard option a)
-        elif (n-1) % 4 == 0 or n == 3:
+        elif (n - 1) % 4 == 0 or n == 3:
             n -= 1
         else:
             n += 1
-
         operations += 1
-        
     return operations
 
 
