@@ -56,3 +56,7 @@ def solution(m, f):
             replications += f // m
             f = f % m
     return 'impossible'
+
+
+if __name__ == "__main__":
+    solution(459, 26)
