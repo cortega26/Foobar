@@ -51,10 +51,10 @@ def solution(m, f):
             return str(replications + abs(m - f))
         if m > f:
             replications += m // f
-            m = m % f
+            m %= f
         else:
             replications += f // m
-            f = f % m
+            f %= m
     return 'impossible'
 
 
