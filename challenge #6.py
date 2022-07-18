@@ -59,4 +59,4 @@ def solution(m, f):
 
 
 if __name__ == "__main__":
-    solution(459, 26)
+    solution('459', '26')
