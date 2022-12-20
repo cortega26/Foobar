@@ -43,20 +43,25 @@ be possible.
 
 def solution(m, f):
     m, f = int(m), int(f)
+
+    if m == 1 and f == 1:
+        return '0'
+
     replications = 0
-    while (m >= 1 and f >= 1):
-        if m == 1 and f == 1:
-            return str(replications)
-        if m == 1 or f == 1:
-            return str(replications + abs(m - f))
+    while m > 1 and f > 1:
         if m > f:
             replications += m // f
             m %= f
         else:
             replications += f // m
             f %= m
+
+    if m == 1 or f == 1:
+        return str(replications + abs(m - f))
+
     return 'impossible'
 
 
 if __name__ == "__main__":
-    solution('459', '26')
+    print(solution('459', '26'))
+
