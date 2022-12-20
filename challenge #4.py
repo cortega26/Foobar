@@ -27,7 +27,16 @@ solution(15) returns 5: 15 -> 16 -> 8 -> 4 -> 2 -> 1
 """
 
 
-def solution(n):
+def solution(n: str) -> int:
+    """
+    Finds the minimum number of operations needed to transform the number of fuel pellets to 1.
+
+    Args:
+        n: A positive integer as a string.
+
+    Returns:
+        The minimum number of operations needed to transform the number of fuel pellets to 1.
+    """
     n = int(n)
     operations = 0
     while n > 1:
@@ -40,6 +49,6 @@ def solution(n):
         operations += 1
     return operations
 
-
 if __name__ == "__main__":
     print(solution('123852951'))
+
