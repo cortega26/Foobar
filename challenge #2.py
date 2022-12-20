@@ -30,23 +30,23 @@ starting with n. For instance, in the example above, solution(210022, 3) would r
 would return to 210111 when done in base 3. If the algorithm reaches a constant, such as 0, then the length is 1.
 """
 
-def numberToBase(n, b):
+def number_to_base(n: int, base: int) -> str:
     if n == 0:
-        return '0'
+        return "0"
     digits = []
     while n:
-        digits.append(int(n % b))
-        n //= b
-    return "".join(map(str, digits[::-1]))
+        digits.append(int(n % base))
+        n //= base
+    return "".join(str(d) for d in digits[::-1])
 
-def solution(n, b):
+def solution(n: str, base: int) -> int:
     k = len(n)
     loop = False
     seen = []
-    while loop == False:
+    while not loop:
         n_asc = "".join(sorted(n))
-        n_des = "".join(sorted(n, reverse = True))
-        res = numberToBase(int(n_des, b) - int(n_asc, b), b)
+        n_des = "".join(sorted(n, reverse=True))
+        res = number_to_base(int(n_des, base) - int(n_asc, base), base)
         res.zfill(k)
         if res in seen:
             loop = True
@@ -56,4 +56,4 @@ def solution(n, b):
     return len(seen) - seen.index(res)
 
 if __name__ == "__main__":
-    print(solution('123456779', 10))
+    print(solution("123456779", 10))
