@@ -54,44 +54,60 @@ With this solution, you would pick up bunnies 1 and 2. This is the best combinat
 from itertools import permutations
 
 def solution(times, time_limit):
+    # Number of nodes in the graph
     nodes = len(times)
+    # Number of inner nodes (nodes that are not the start or end nodes)
     inner_nodes = nodes - 2
+    # Create a graph with the given number of nodes
     g = Graph(nodes)
+    # Add edges to the graph
     [[g.addEdge(i, j, element) for j, element in enumerate(array) if i != j] for i, array in enumerate(times)]
+
+    # Generate all permutations of inner nodes
     all_permutations = []
     for k in range(nodes - 1):
+        # Generate permutations of length (inner_nodes - k)
         inner_permutations = [list(j) for j in list(permutations([i for i in range(1, nodes - 1)], (inner_nodes - k)))]
         for array in inner_permutations:
+            # Add start and end nodes to the permutation
             array = [0] + array + [nodes - 1]
             all_permutations.append(array)
 
+    # Get the shortest distance from each node to every other node
     distances = [g.BellmanFord(i) for i in range(nodes)]
 
-    if None in distances: # This is to ask if a negative cycle exists
+    # Check if there is a negative cycle in the graph
+    if None in distances:
+        # If there is a negative cycle, return the list of inner nodes
         solut = [i for i in range(nodes)]
         solut = solut[1:-1]
         return [i - 1 for i in solut] 
    
+    # Find the shortest path that takes the least time
     for i in range(nodes - 1):
         for permut in all_permutations:
+            # Initialize used_time to 0
             used_time = 0
+            # Initialize min_time to infinity
             min_time = float("Inf")
             if len(permut) == nodes - i:
                 for j in range(len(permut)-1):
                     for array in distances:
                         for distance in array:
+                            # If the current node and the next node in the permutation are connected, add the distance between them to used_time
                             if permut[j] == distance[0] and permut[j+1] == distance[1]:
                                 used_time += distance[2]
             else:
                 continue
+            # Update min_time if the current path has a shorter time than the previous minimum
             if used_time < min_time:
                 min_time = used_time
                 if min_time <= time_limit:
+                    # Remove start and end nodes from the permutation and sort the list
                     permut = permut[1:-1]
                     permut = [i - 1 for i in permut]
                     permut.sort()
                     return permut
-
 
 class Graph:
  
@@ -124,3 +140,4 @@ class Graph:
     
 if __name__ == "__main__":
     solution([[0, 2, 2, 2, -1], [9, 0, 2, 2, -1], [9, 3, 0, 2, -1], [9, 3, 2, 0, -1], [9, 3, 2, 2, 0]], 1)
+
