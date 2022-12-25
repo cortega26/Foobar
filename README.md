@@ -1,14 +1,14 @@
 # Google Foobar
 
-Welcome to the Google Foobar repository! This is a place for you to showcase your solutions to the challenges presented to you through the Google Foobar program.
+Welcome to the Google Foobar repository! This is a place for you to showcase my solutions to the challenges presented through the Google Foobar program.
 
 ## What is Google Foobar?
 
-Google Foobar is a secret recruiting program run by Google for top software engineering talent. It involves a series of coding challenges that are designed to test your skills and abilities as a software engineer.
+Google Foobar is a secret recruiting program run by Google for software engineering talent. It involves a series of coding challenges that are designed to test your skills and abilities as a software engineer.
 
 ## How do I get invited to Google Foobar?
 
-Invitation to Google Foobar is typically extended to individuals who have demonstrated exceptional programming ability through their past work or by solving difficult coding challenges online. It is not something that can be applied for or signed up for.
+Invitation to Google Foobar is typically extended to individuals who have demonstrated exceptional programming ability through their past work or by solving difficult coding challenges online. It is not something that can be applied for or signed up for. I got an invitation after finishing the Coursera Google Data Analytics course.
 
 ## What can I find in this repository?
 
