@@ -12,7 +12,7 @@ Invitation to Google Foobar is typically extended to individuals who have demons
 
 ## What can I find in this repository?
 
-In this repository, you will find the solutions to the challenges presented to you through the Google Foobar program. Each challenge will have its own directory, containing the prompt, any relevant files, and the solution code.
+In this repository, you will find the solutions to the challenges presented to you through the Google Foobar program.
 
 ## How do I contribute to this repository?
 
