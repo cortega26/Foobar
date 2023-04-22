@@ -25,7 +25,7 @@ maximum number of equal parts that can be cut from the cake without leaving
 any leftovers.
 """
 
-def solution(s):
+def solution(s: str):
     """
     Given a non-empty string `s` of length at most 200 characters, representing
     a sequence of M&Ms, this function returns the maximum number of equal parts
@@ -45,6 +45,7 @@ def solution(s):
     for index, divisor in enumerate(divisors_list):
         if s == s[:divisor] * divisors_list[len(divisors_list) - index - 1]:
             return size // divisors_list[index]
+    return None
 
 
 if __name__ == "__main__":
