@@ -37,6 +37,24 @@ length is 1.
 
 
 def number_to_base(n: int, base: int) -> str:
+    """
+    Given an integer `n` and a base `base`, this function returns the string
+    representation of `n` in that base.
+
+    For example, number_to_base(31, 16) returns "1F".
+
+    Parameters:
+    -----------
+    n: int
+        The number to convert to a string in the given base.
+    base: int
+        The base to use for the string representation.
+
+    Returns:
+    --------
+    str
+        The string representation of `n` in the given base.
+    """
     if n == 0:
         return "0"
     digits = []
@@ -45,7 +63,26 @@ def number_to_base(n: int, base: int) -> str:
         n //= base
     return "".join(str(d) for d in digits[::-1])
 
+
 def solution(n: str, base: int) -> int:
+    """
+    Given a minion ID as a string `n` representing a nonnegative integer of length
+    `k` in base `b`, where `2 <= k <= 9` and `2 <= b <= 10`, this function returns
+    the length of the ending cycle of the algorithm described in the problem
+    statement, starting with `n`.
+
+    Parameters:
+    -----------
+    n: str
+        A string representing the minion ID to start with.
+    base: int
+        An integer representing the base of the minion ID.
+
+    Returns:
+    --------
+    int
+        The length of the ending cycle of the algorithm starting with `n`.
+    """
     k = len(n)
     loop = False
     seen = []
@@ -60,6 +97,7 @@ def solution(n: str, base: int) -> int:
             seen.append(res)
         n = res
     return len(seen) - seen.index(res)
+
 
 if __name__ == "__main__":
     print(solution("123456779", 10))
