@@ -27,12 +27,21 @@ any leftovers.
 
 def solution(s):
     """
-    given a non-empty string less than 200 characters in length describing the
-    a sequence of M&Ms, returns the maximum number of equal parts that can be
-    cut from the cake without leaving any leftovers.
+    Given a non-empty string `s` of length at most 200 characters, representing
+    a sequence of M&Ms, this function returns the maximum number of equal parts
+    that can be cut from the sequence without leaving any leftovers. 
+
+    The function first calculates all the divisors of the length of the sequence
+    and then checks whether the sequence can be formed by concatenating a
+    smaller substring `divisors_list[len(divisors_list) - index - 1]` times,
+    where the length of the smaller substring is `size // divisors_list[index]`. 
+
+    If such a substring is found, the function returns the maximum number of
+    equal parts that can be cut from the sequence, which is equal to
+    `size // divisors_list[index]`. Otherwise, the function returns None.
     """
     size = len(s)
-    divivors_list = [i for i in range(1, size + 1) if size % i == 0]
+    divisors_list = [i for i in range(1, size + 1) if size % i == 0]
     for index, divisor in enumerate(divisors_list):
         if s == s[:divisor] * divisors_list[len(divisors_list) - index - 1]:
             return size // divisors_list[index]
