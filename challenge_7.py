@@ -124,6 +124,7 @@ def solution(times, time_limit):
                     permut.sort()
                     return permut
 
+                  
 class Graph:
  
     def __init__(self, vertices):
@@ -154,5 +155,9 @@ class Graph:
     
     
 if __name__ == "__main__":
-    solution([[0, 2, 2, 2, -1], [9, 0, 2, 2, -1], [9, 3, 0, 2, -1], [9, 3, 2, 0, -1], [9, 3, 2, 2, 0]], 1)
+    solution([[0, 2, 2, 2, -1],
+              [9, 0, 2, 2, -1],
+              [9, 3, 0, 2, -1],
+              [9, 3, 2, 0, -1],
+              [9, 3, 2, 2, 0]], 1)
 
