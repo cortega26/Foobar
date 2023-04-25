@@ -39,22 +39,30 @@ representations of positive integers no larger than 10^50. For example, if M =
 """
 
 
-# To solve this problem we have to resign to the idea of going from A to B, as
-# in trying to find the shortest path from the root to the leaf. We, instead,
-# approach the problem in the opposite direction: starting from B and looking
-# at the route to A. According to the problem you will be given two positive
-# integers (M, F) and the ONLY way to get there according to the instructions
-# is by doing (M+F, F) or (M, F+M) in a previous step, in either case, you
-# can't get the smaller number (M or F) by adding the larger in a previous step,
-# this means the larger number will ALWAYS be the one who got added the number
-# of its replicant partner in the previous step.
-
-# For instance, if you have (59, 95), who got the summation? M or F? We know for
-# sure it was F because there is no positive integer that added to 95 will
-# result in 59.
-
-
 def solution(m, f):
+    """
+    This script solves the "Bomb, baby" problem. Given the number of Mach bombs (M)
+    and Facula bombs (F) needed to destroy a doomsday device, the function
+    solution(M, F) returns the fewest number of generations it will take to generate
+    the exact number of bombs necessary, or "impossible" if this can't be done.
+
+    To solve the problem, the script starts from the target number of bombs and works
+    backwards, using a simple algorithm that computes the number of replicant partners
+    needed to generate the required number of bombs. The script also checks for edge
+    cases where the starting values are 1 or where the required number of bombs is
+    not achievable.
+    
+    Args:
+        m (str): A string representing the number of Mach bombs needed to destroy
+            the LAMBCHOP device. A positive integer no larger than 10^50.
+        f (str): A string representing the number of Facula bombs needed to
+            destroy the LAMBCHOP device. A positive integer no larger than 10^50.
+
+    Returns:
+        str: The fewest number of generations that need to pass before you'll have
+            the exact number of bombs necessary to destroy the LAMBCHOP, or the
+            string "impossible" if this can't be done.
+    """
     m, f = int(m), int(f)
 
     if m == 1 and f == 1:
