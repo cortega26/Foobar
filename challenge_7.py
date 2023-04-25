@@ -71,7 +71,7 @@ from itertools import permutations
 def solution(times, time_limit):
     # Number of nodes in the graph
     nodes = len(times)
-    # Number of inner nodes (nodes that are not the start or end nodes)
+    # Number of inner nodes (nodes that are not the start nor the end node)
     inner_nodes = nodes - 2
     # Create a graph with the given number of nodes
     g = Graph(nodes)
@@ -145,7 +145,7 @@ class Graph:
         for _ in range(self.V - 1):
             for u, v, w in self.graph:
                 if dist[u] != float("Inf") and dist[u] + w < dist[v]:
-                        dist[v] = dist[u] + w
+                    dist[v] = dist[u] + w
  
         for u, v, w in self.graph:
             if dist[u] != float(u"Inf") and dist[u] + w < dist[v]:
