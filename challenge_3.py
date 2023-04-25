@@ -38,8 +38,8 @@ def solution(s: str) -> int:
     Counts the number of times employees salute each other in a hallway.
 
     Args:
-        s: A string representing the layout of the hallway. It contains at least 1 and at most 100 characters,
-           each one of -, >, or <.
+        s: A string representing the layout of the hallway. It contains at
+           least 1 and at most 100 characters, each one of -, >, or <.
 
     Returns:
         The number of times the employees salute each other.
